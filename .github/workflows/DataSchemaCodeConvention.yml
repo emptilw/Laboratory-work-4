@@ -10,4 +10,4 @@ jobs:
       - name: Start JSON Schema Linter
         run: |
           npm install --global @sourcemeta/jsonschema
-          jsonschema validate $GITHUB_WORKSPACE/DataSchema.json $GITHUB_WORKSPACE/instance.json
+          jsonschema validate $GITHUB_WORKSPACE/DataSchemaModified.json $GITHUB_WORKSPACE/instance.json
