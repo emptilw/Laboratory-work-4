@@ -1,11 +1,14 @@
 package com.stickmotion;
 
-/** Main class for StickMotion. */
+/**
+ * Main class for StickMotion.
+ */
 public final class ProgramCode {
-  private ProgramCode() {}
+  private ProgramCode() {
+  }
 
   /**
-   * Entry point.
+   * Entry point of the application.
    *
    * @param args command line arguments
    */
