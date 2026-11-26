@@ -1,0 +1,16 @@
+name: JSON Schema Linter
+
+on:
+  push:
+    branches: main
+
+jobs:
+  JSONSchemaLinter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+      - name: Start JSON Schema Linter
+        run: |
+          npm install --global @sourcemeta/jsonschema
+          jsonschema validate $GITHUB_WORKSPACE/DataSchema.json $GITHUB_WORKSPACE/instance.json
