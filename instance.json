@@ -1,27 +1,27 @@
 {
-  "user": {
-    "full_name": "Anzhelika Galchonkova",
-    "email": "likysha07@gvail.com",
-    "fitness_level": "intermediate",
-    "workouts": [
-      {
-        "workout_date": "2026-10-24",
-        "target_rep_count": 15,
-        "completed_rep_count": 12,
-        "workout_status": "active",
-        "exercise": {
-          "exercise_name": "Overhead Stick Lift",
-          "exercise_description": "Smooth overhead lift of the gymnastic stick with both hands",
-          "target_acceleration": 3.5
-        },
-        "sensor_readings": [
-          {
-            "acceleration_val": 4.12,
-            "angular_velocity_val": 1.05,
-            "recorded_at": "18:01:10"
-          }
+    "user": {
+        "full_name": "Anzhelika Galchonkova",
+        "email": "likysha07@gvail.com",
+        "fitness_level": "intermediate",
+        "workouts": [
+            {
+                "workout_date": "2026-10-24",
+                "target_rep_count": 15,
+                "completed_rep_count": 12,
+                "workout_status": "active",
+                "exercise": {
+                    "exercise_name": "Overhead Stick Lift",
+                    "exercise_description": "Smooth overhead lift of the gymnastic stick with both hands",
+                    "target_acceleration": 3.5
+                },
+                "sensor_readings": [
+                    {
+                        "acceleration_val": 4.12,
+                        "angular_velocity_val": 1.05,
+                        "recorded_at": "18:01:10"
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }

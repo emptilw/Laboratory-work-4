@@ -1,4 +1,2 @@
-/**
- * Package for the StickMotion application.
- */
+/** Package for StickMotion. */
 package com.stickmotion;

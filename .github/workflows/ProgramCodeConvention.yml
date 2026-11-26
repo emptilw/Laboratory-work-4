@@ -1,15 +1,12 @@
 name: Program Code Linter
-
 on:
   push:
     branches: main
-
 jobs:
   ProgramCodeLinter:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code in Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Lint Program Code
         uses: super-linter/super-linter/slim@v7
         env:
