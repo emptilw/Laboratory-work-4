@@ -6,7 +6,6 @@ package com.stickmotion;
 public final class ProgramCode {
 
   private ProgramCode() {
-    // Private constructor to prevent instantiation
   }
 
   /**

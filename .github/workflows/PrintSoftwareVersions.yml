@@ -23,8 +23,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gnupg curl
-          curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
-          echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+          KEY_URL="https://www.mongodb.org/static/pgp/server-8.0.asc"
+          KEY_PATH="/usr/share/keyrings/mongodb-server-8.0.gpg"
+          curl -fsSL "$KEY_URL" | sudo gpg -o "$KEY_PATH" --dearmor
+          REPO="https://repo.mongodb.org/apt/ubuntu"
+          LINE="deb [ arch=amd64,arm64 signed-by=$KEY_PATH ] $REPO noble/mongodb-org/8.0 multiverse"
+          echo "$LINE" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
           sudo apt-get update
           sudo apt-get install -y mongodb-org
           mongod --version

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StickMotion Data Schema",
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "full_name": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$"
+        },
+        "fitness_level": {
+          "type": "string",
+          "pattern": "^(beginner|intermediate|advanced)$"
+        },
+        "workouts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "workout_date": { "type": "string", "format": "date" },
+              "target_rep_count": { "type": "integer", "minimum": 1, "maximum": 1000 },
+              "completed_rep_count": { "type": "integer", "minimum": 0, "maximum": 1000 },
+              "workout_status": {
+                "type": "string",
+                "pattern": "^(planned|active|paused|completed)$"
+              },
+              "exercise": {
+                "type": "object",
+                "properties": {
+                  "exercise_name": { "type": "string", "minLength": 3, "maxLength": 100 },
+                  "exercise_description": { "type": "string", "minLength": 5, "maxLength": 500 },
+                  "target_acceleration": { "type": "number", "minimum": 0.1, "maximum": 50.0 }
+                },
+                "required": ["exercise_name", "exercise_description", "target_acceleration"]
+              },
+              "sensor_readings": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "acceleration_val": { "type": "number", "minimum": -100.0, "maximum": 100.0 },
+                    "angular_velocity_val": { "type": "number", "minimum": -50.0, "maximum": 50.0 },
+                    "recorded_at": { "type": "string", "minLength": 8, "maxLength": 30 }
+                  },
+                  "required": ["acceleration_val", "angular_velocity_val", "recorded_at"]
+                }
+              }
+            },
+            "required": [
+              "workout_date", "target_rep_count", "completed_rep_count",
+              "workout_status", "exercise", "sensor_readings"
+            ]
+          }
+        }
+      },
+      "required": ["full_name", "email", "fitness_level", "workouts"]
+    }
+  },
+  "required": ["user"]
+}
